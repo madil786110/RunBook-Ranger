@@ -1,0 +1,7 @@
+boto3
+click
+pydantic
+pyyaml
+rich
+mypy
+pytest

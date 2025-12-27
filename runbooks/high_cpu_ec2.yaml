@@ -1,0 +1,23 @@
+runbook_id: high_cpu_ec2_mitigate
+match:
+  alarm_name_prefix: "ec2-high-cpu"
+  namespace: "AWS/EC2"
+
+actions:
+  - id: scale_asg_up
+    type: scale_asg
+    params:
+      asg_name: "${dimensions.AutoScalingGroupName}"
+      adjustment: +1
+    safety:
+      approval_required: false
+      max_per_incident: 1
+
+  - id: restart_service_ssm
+    type: ssm_restart_service
+    params:
+      instance_id: "i-1234567890abcdef0" # Hardcoded for demo simplicity/safety, normally dynamic
+      service_name: "myservice"
+    safety:
+      approval_required: true
+      max_per_incident: 2

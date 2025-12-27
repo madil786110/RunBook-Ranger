@@ -1,0 +1,35 @@
+{
+    "version": "0",
+    "id": "12345678-1234-1234-1234-123456789012",
+    "detail-type": "CloudWatch Alarm State Change",
+    "source": "aws.cloudwatch",
+    "account": "123456789012",
+    "time": "2023-01-01T00:00:00Z",
+    "region": "us-east-1",
+    "resources": [
+        "arn:aws:cloudwatch:us-east-1:123456789012:alarm:ec2-high-cpu"
+    ],
+    "detail": {
+        "alarmName": "ec2-high-cpu-prod",
+        "state": {
+            "value": "ALARM",
+            "reason": "Threshold Crossed: 1 datapoint [90.0 (29/08/21 11:37:00)] was greater than or equal to the threshold (80.0)."
+        },
+        "configuration": {
+            "metrics": [
+                {
+                    "id": "m1",
+                    "metricStat": {
+                        "metric": {
+                            "namespace": "AWS/EC2",
+                            "name": "CPUUtilization",
+                            "dimensions": {
+                                "AutoScalingGroupName": "app-prod-asg"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

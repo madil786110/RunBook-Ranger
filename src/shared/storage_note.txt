@@ -1,0 +1,3 @@
+
+# In AWS Lambda context, db should use DynamoDB not local files
+# We update src/shared/storage.py to switch based on ENV
