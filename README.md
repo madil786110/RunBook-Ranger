@@ -1,4 +1,4 @@
-# Runbook Ranger
+# About Runbook Ranger
 
 **An event-driven AWS SRE bot that converts CloudWatch alarms into safe, policy-driven runbooks and automatically mitigates incidents.**
 
